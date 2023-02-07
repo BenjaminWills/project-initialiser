@@ -131,18 +131,6 @@ parser = argparse.ArgumentParser(
     epilog="Project directories initialised",
 )
 parser.add_argument(
-    "--structure",
-    help="This is the structure of the directories in the form of a comma separated string",
-)
-parser.add_argument(
-    "--json_path",
-    help="""
-    This is the path to a JSON with two fields,
-        \n - Directories
-        \n - Files
-    """,
-)
-parser.add_argument(
     "--initialise",
     type=Initalise_repository.structure_project_using_json,
     help="""
