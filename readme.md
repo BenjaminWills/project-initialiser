@@ -19,5 +19,13 @@ Take a look at the [example folder](https://github.com/BenjaminWills/project-ini
 Then to use this we simply run the command from the top level directory:
 
 ```sh
-python
+python initialise_project.py --initialise structure.json
 ```
+
+If we want to clear the repository of files specified in the `structure.json` file we simply can write:
+
+```sh
+python initialise_project.py --clean_directory structure.json
+```
+
+to remove those files and directories from the project.
