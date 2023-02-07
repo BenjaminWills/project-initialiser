@@ -5,6 +5,10 @@ import json
 
 
 class Initalise_repository:
+    """
+    A class that will build a repository structure based on an input json file.
+    """
+
     @staticmethod
     def _directory_error_message(directory_path: str):
         print(
@@ -29,7 +33,7 @@ class Initalise_repository:
     def _file_error_message(full_file_path: str):
         print(
             f"""
-                {'-'*100}
+            {'-'*100}
             \t File {full_file_path} already exists
             {'-'*100}
             """
@@ -39,7 +43,7 @@ class Initalise_repository:
     def _file_success_message(full_file_path: str):
         print(
             f"""
-                {'-'*100}
+            {'-'*100}
             \t File {full_file_path} successfully created
             {'-'*100}
             """
