@@ -68,11 +68,6 @@ class Initalise_repository:
             Initalise_repository._file_error_message(full_file_path)
 
     @staticmethod
-    def parse_command_line_list(comma_separated_paths: str) -> List[str]:
-        directory_list = comma_separated_paths.split(",")
-        return directory_list
-
-    @staticmethod
     def parse_json_content(path_to_template_json: str) -> Dict[str, str]:
         with open(path_to_template_json, "r") as json_file:
             json_object = json.load(json_file)
@@ -89,16 +84,6 @@ class Initalise_repository:
         if files:
             for path in files:
                 Initalise_repository.mkfile_if_not_exists(path)
-
-    @staticmethod
-    def structure_project_using_command_line():
-        # Can read from a text file by using `cat structure.txt` as the command line argument
-        comma_separated_paths = args.structure
-
-        path_list = Initalise_repository.parse_command_line_list(comma_separated_paths)
-        if path_list:
-            for path in path_list:
-                Initalise_repository.mkdir_if_not_exists(path)
 
     @staticmethod
     def structure_project_using_json(path_to_template_json: str):
