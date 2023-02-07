@@ -73,9 +73,12 @@ class Initalise_repository:
 
     @staticmethod
     def parse_json_content(path_to_template_json: str) -> Dict[str, str]:
-        with open(path_to_template_json, "r") as json_file:
-            json_object = json.load(json_file)
-        return json_object
+        try:
+            with open(path_to_template_json, "r") as json_file:
+                json_object = json.load(json_file)
+            return json_object
+        except:
+            print("JSON file could not be parsed.")
 
     @staticmethod
     def create_dirs(directories: List[str]):
