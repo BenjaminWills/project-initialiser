@@ -1,0 +1,13 @@
+{
+  "directories": ["src", "logging", "src/logger", "src/main"],
+  "files": [
+    "src/main/main.py",
+    "src/logger/logger.py",
+    "src/__init__.py",
+    "logging/logging.log",
+    "readme.md",
+    ".gitignore",
+    ".vscode",
+    "requirements.txt"
+  ]
+}
