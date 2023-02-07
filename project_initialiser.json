@@ -1,0 +1,9 @@
+{
+  "directories": ["example_usecases"],
+  "files": [
+    "readme.md",
+    "example_usecases/json_structure.zsh",
+    "example_usecases/txt_structure.zsh",
+    "example_usecases/clean_directory.zsh"
+  ]
+}
