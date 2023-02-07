@@ -1,5 +1,6 @@
 - [Project intialiser tool](#project-intialiser-tool)
   - [How to use](#how-to-use)
+  - [If you use](#if-you-use)
 
 # Project intialiser tool
 
@@ -29,3 +30,7 @@ python initialise_project.py --clean_directory structure.json
 ```
 
 to remove those files and directories from the project.
+
+## If you use
+
+If you use this, please let me know if you have any feedback!
