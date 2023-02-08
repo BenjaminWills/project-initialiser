@@ -54,6 +54,14 @@ my_logger = make_logger(
 
 if __name__ == "__main__":
     my_logger.info("My first log!")
+    my_logger.warning("AAAAH")
+```
+
+Now the `log` file looks like:
+
+```log
+2023-02-08 19:50:06,078 - my_logger - INFO :: My first log!
+2023-02-08 19:50:06,078 - my_logger - WARNING :: AAAAH
 ```
 
 ## If you use
