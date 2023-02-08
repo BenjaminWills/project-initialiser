@@ -39,6 +39,23 @@ to remove those files and directories from the project.
 
 This is a script that can be used to make a custom logger easily.
 
+```python
+# file.py
+from logging import INFO
+import make_logger.py
+
+my_logger = make_logger(
+  logging_path = "my_path/my_logs.log",
+  save_logs = True,
+  formatter_style = "%(asctime)s - %(name)s - %(levelname)s :: %(message)s",
+  logger_name = "my_logger",
+  logger_level = INFO
+)
+
+if __name__ == "__main__":
+    my_logger.info("My first log!")
+```
+
 ## If you use
 
 If you use this, please let me know if you have any feedback!
