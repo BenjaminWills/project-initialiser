@@ -1,1 +1,1 @@
-python initialise_project.py --initialise structures/structure.json
+python src/initialise_project.py --initialise structures/structure.json

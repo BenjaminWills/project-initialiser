@@ -1,1 +1,1 @@
-python initialise_project.py --clean_directory structures/structure.json
+python src/initialise_project.py --clean_directory structures/structure.json
