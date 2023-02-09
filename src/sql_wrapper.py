@@ -37,7 +37,7 @@ class Sql_Wrapper:
 
         # ENGINE CREATION
         self.engine = self.__get_engine()
-        self.logger.info(self.__log_connection_credentials())
+        print(self.__log_connection_credentials())
 
     def __log_connection_credentials(self) -> str:
         engine_connect_log = f"""
