@@ -1,0 +1,3 @@
+# IF USING SQL WRAPPER
+psycopg2 # DRIVER FOR POSTGRESQL
+sqlalchemy # SQL API for python
