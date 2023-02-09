@@ -2,6 +2,7 @@
   - [How to use](#how-to-use)
     - [`initialise_project.py`](#initialise_projectpy)
     - [`make_logger.py`](#make_loggerpy)
+    - [SQL wrapper](#sql-wrapper)
   - [If you use](#if-you-use)
 
 # Project intialiser tool
@@ -62,6 +63,32 @@ Now the `log` file looks like:
 ```log
 2023-02-08 19:50:06,078 - my_logger - INFO :: My first log!
 2023-02-08 19:50:06,078 - my_logger - WARNING :: AAAAH
+```
+
+### SQL wrapper
+
+This is a class to use to connect to an SQL database, it can be modified to fit other databases that aren't `PostgreSQL`. An example `postgres` database is @ [rfam PostgreSQL database](https://docs.rfam.org/en/latest/database.html)
+
+```python
+import Sql_Wrapper
+
+db_username="rfamro"
+db_password=""
+db_host="mysql-rfam-public.ebi.ac.uk"
+db_port=4497
+db_name="Rfam"
+
+sql = Sql_Wrapper(
+  db_username,
+  db_password,
+  db_host,
+  db_port,
+  db_name
+)
+
+print(
+  sql.
+)
 ```
 
 ## If you use

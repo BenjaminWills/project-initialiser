@@ -16,7 +16,6 @@ from sqlalchemy.engine import LegacyCursorResult
 class Sql_Wrapper:
     """
     dialect+driver://username:password@host:port/database - engine connection string.
-    A class to wrap SQL alchemy to be used in the webscraper.
     """
 
     def __init__(
@@ -62,7 +61,8 @@ class Sql_Wrapper:
             engine = sqlalchemy.create_engine(connection_string)
             return engine
         except SQLAlchemyError as sqle:
-            sys.exit(0)
+            # sys.exit(0)
+            pass
 
     def execute_query(self, query: str) -> LegacyCursorResult:
         """Will execute an inputted postgreSQL query
@@ -75,11 +75,26 @@ class Sql_Wrapper:
         LegacyCursorResult
             result of the query - a tuple.
         """
-        try:
-            with self.engine.connect() as db_connection:
-                result = db_connection.execute(query)
-                db_connection.close()
-            return result.fetchall()
+        # try:
+        with self.engine.connect() as db_connection:
+            result = db_connection.execute(query)
+            db_connection.close()
+        return result.fetchall()
 
-        except SQLAlchemyError as sqle:
-            sys.exit(0)
+        # except SQLAlchemyError as sqle:
+        #     # sys.exit(0)
+        #     pass
+
+
+if __name__ == "__main__":
+    db_username = "rfamro"
+    db_password = ""
+    db_host = "mysql-rfam-public.ebi.ac.uk"
+    db_port = 4497
+    db_name = "Rfam"
+
+    query = "SELECT * FROM family WHERE rfam_acc = 'RF00001'"
+
+    sql = Sql_Wrapper(db_username, db_password, db_host, db_port, db_name)
+
+    print(sql.execute_query(query))
