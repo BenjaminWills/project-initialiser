@@ -36,6 +36,8 @@ python initialise_project.py --clean_directory structure.json
 
 to remove those files and directories from the project.
 
+TODO: MAKE FUNCTION TO EXTRACT STRUCTURE FROM A REPO AND PLACE IN A JSON FORMAT
+
 ### [`make_logger.py`](https://github.com/BenjaminWills/project-initialiser/blob/master/src/make_logger.py)
 
 This is a script that can be used to make a custom logger easily.
