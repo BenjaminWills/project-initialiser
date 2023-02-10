@@ -1,3 +1,4 @@
+import itertools
 import os
 import argparse
 from typing import List, Dict
@@ -116,6 +117,44 @@ class Initalise_repository:
             except:
                 pass
 
+    @staticmethod
+    def include_directory_in_path(file_path: str, root: str) -> str:
+        return os.path.join(root, file_path)
+
+    @staticmethod
+    def flatten_list(input_list: list) -> list:
+        return list(itertools.chain(*input_list))
+
+    @staticmethod
+    def get_dirs_and_files() -> Dict[str, List[str]]:
+        files_master = []
+        dirs_master = []
+
+        for root, dirs, files in os.walk("."):
+            files = [
+                Initalise_repository.include_directory_in_path(file_path=f, root=root)
+                for f in files
+                if not f[0] == "."  # Dont include hidden directories
+            ]
+            dirs[:] = [
+                d for d in dirs if not d[0] == "."
+            ]  # Dont incluse hidden directories
+
+            if files:  # If there are files to append
+                files_master.append(files)
+            if dirs:  # If there are files to append
+                dirs_master.append(dirs)
+
+        return {
+            "files": Initalise_repository.flatten_list(files_master),
+            "directories": Initalise_repository.flatten_list(dirs_master),
+        }
+
+    @staticmethod
+    def save_repository(output_path: str):
+        with open(output_path, "w") as output:
+            output.write(json.dumps(Initalise_repository.get_dirs_and_files()))
+
 
 parser = argparse.ArgumentParser(
     prog="Directory initialiser",
@@ -140,5 +179,15 @@ parser.add_argument(
         \n - Files
     """,
 )
+parser.add_argument(
+    "--save_directory",
+    type=Initalise_repository.save_repository,
+    help="""
+    Will save all files specified in the structure JSON file:
+        \n - Directories
+        \n - Files
+    """,
+)
+
 
 args = parser.parse_args()
