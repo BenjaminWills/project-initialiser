@@ -3,6 +3,7 @@ import os
 import argparse
 from typing import List, Dict
 import json
+from s3_utilities import S3
 
 
 class Initalise_repository:
@@ -100,6 +101,7 @@ class Initalise_repository:
         files = json_contents.get("files", [])
         Initalise_repository.create_dirs(directories)
         Initalise_repository.create_files(files)
+        Initalise_repository.load_premade_file(json_contents)
 
     @staticmethod
     def clean_directory(path_to_template_json: str):
@@ -154,6 +156,13 @@ class Initalise_repository:
     def save_repository(output_path: str):
         with open(output_path, "w") as output:
             output.write(json.dumps(Initalise_repository.get_dirs_and_files()))
+
+    @staticmethod
+    def load_premade_file(loaded_json: Dict[str, str]):
+        # A function to load a premade file, such as a python .gitignore or a sample readme into a project
+        if loaded_json.get(".gitignore", False):
+            s3 = S3(region_name="eu-west-2")
+            s3.download_object("projectinitialiserbucket", ".gitignore", "./.gitignore")
 
 
 parser = argparse.ArgumentParser(

@@ -9,5 +9,6 @@
     ".gitignore",
     ".vscode",
     "requirements.txt"
-  ]
+  ],
+  ".gitignore": "True"
 }
