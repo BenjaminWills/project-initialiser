@@ -2,7 +2,7 @@
   - [How to use](#how-to-use)
     - [`initialise_project.py`](#initialise_projectpy)
     - [`make_logger.py`](#make_loggerpy)
-    - [SQL wrapper](#sql-wrapper)
+    - [`SQL wrapper`](#sql-wrapper)
   - [If you use](#if-you-use)
 
 # Project intialiser tool
@@ -36,7 +36,13 @@ python initialise_project.py --clean_directory structure.json
 
 to remove those files and directories from the project.
 
-TODO: MAKE FUNCTION TO EXTRACT STRUCTURE FROM A REPO AND PLACE IN A JSON FORMAT
+As well as this we can save the structure of a `template directory` as a structure JSON by simply running the command:
+
+```sh
+python initialise_project.py --save_directory <output path>
+```
+
+This will save a JSON to the output path, that will contain something similar to the afforementioned `structure.json` file.
 
 ### [`make_logger.py`](https://github.com/BenjaminWills/project-initialiser/blob/master/src/make_logger.py)
 
@@ -67,7 +73,7 @@ Now the `log` file looks like:
 2023-02-08 19:50:06,078 - my_logger - WARNING :: AAAAH
 ```
 
-### SQL wrapper
+### [`SQL wrapper`](https://github.com/BenjaminWills/project-initialiser/blob/master/src/sql_wrapper.py)
 
 This is a class to use to connect to an SQL database, it can be modified to fit other databases that aren't `PostgreSQL`. An example `postgres` database is @ [rfam PostgreSQL database](https://docs.rfam.org/en/latest/database.html)
 
