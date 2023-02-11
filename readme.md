@@ -18,9 +18,12 @@ Take a look at the [example folder](https://github.com/BenjaminWills/project-ini
 ```JSON
 {
     "directories":["src","logging"],
-    "files":["src/main.py","logging/log.py"]
+    "files":["src/main.py","logging/log.py"],
+    ".gitignore":"True"
 }
 ```
+
+Note that the `.gitignore` section will load a premade python gitignore for the project from a remote s3 bucket
 
 Then to use this we simply run the command from the top level directory:
 
